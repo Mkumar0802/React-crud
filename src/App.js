@@ -38,7 +38,7 @@ class App extends React.Component {
     myHeaders.append("Content-Type", "application/json");
 
     var body = JSON.stringify({ name: this.state.name, age: this.state.age, country: this.state.country, email: this.state.email, mobile: this.state.mobile });
-    fetch("http://localhost:3001/create", {
+    fetch("https://sql-crud-api.herokuapp.com/create", {
       method: "POST",
       headers: myHeaders,
       body: body,
@@ -72,7 +72,7 @@ class App extends React.Component {
   fetchAllRecords = () => {
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
-    fetch("http://localhost:3001/employee", {
+    fetch("https://sql-crud-api.herokuapp.com/employee", {
       method: "GET",
       headers: headers,
     })
@@ -88,7 +88,7 @@ class App extends React.Component {
 
   // view single data to edit
   editRecord = (id) => {
-    fetch("http://localhost:3001/employee/" + id, {
+    fetch("https://sql-crud-api.herokuapp.com/employee/" + id, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -115,7 +115,7 @@ class App extends React.Component {
     myHeaders.append("Content-Type", "application/json");
 
     var body = JSON.stringify({ id: this.state.id, name: this.state.name, age: this.state.age, country: this.state.country, email: this.state.email, mobile: this.state.mobile });
-    fetch("http://localhost:3001/update/", {
+    fetch("https://sql-crud-api.herokuapp.com/update/", {
       method: "PUT",
       headers: myHeaders,
       body: body,
@@ -149,7 +149,7 @@ class App extends React.Component {
 
   // delete a record
   deleteRecord = (id) => {
-    fetch("http://localhost:3001/delete/" + id, {
+    fetch("https://sql-crud-api.herokuapp.com/delete/" + id, {
       method: "DELETE",
     })
       .then((response) => response.json())
